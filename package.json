@@ -5,8 +5,10 @@
   "description": "System task and sensor viewer with a modular API and React dashboard.",
   "scripts": {
     "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "build": "npm run build --prefix server && npm run build --prefix client",
-    "install:all": "npm install --prefix server && npm install --prefix client"
+    "dev:terminal": "npm run dev --prefix terminal",
+    "build": "npm run build --prefix server && npm run build --prefix client && npm run build --prefix terminal",
+    "build:terminal": "npm run build --prefix terminal",
+    "install:all": "npm install --prefix server && npm install --prefix client && npm install --prefix terminal"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
