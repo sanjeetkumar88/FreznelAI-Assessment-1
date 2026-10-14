@@ -28,7 +28,7 @@ export function AuthScreen({ onAuthenticated }: Props) {
       void submit();
       return;
     }
-    if (key.backspace) {
+    if (key.backspace || input === '\b' || input === '\x7f') {
       field === 'email' ? setEmail((value) => value.slice(0, -1)) : setPassword((value) => value.slice(0, -1));
       return;
     }
