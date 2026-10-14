@@ -12,7 +12,7 @@ export function Dashboard({ session }: Props) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [sensors, setSensors] = useState<Sensors | null>(null);
   const [selected, setSelected] = useState(0);
-  const [message, setMessage] = useState('1 Overview  2 Tasks  3 Sensors  R Refresh  Q Quit');
+  const [message, setMessage] = useState('1 Overview  2 Tasks  3 Sensors  ↑/↓ Select  R Refresh  Q Quit');
   const { stdout } = useStdout();
   const api = new ApiService();
 
@@ -37,7 +37,7 @@ export function Dashboard({ session }: Props) {
   }, []);
 
   useInput((input, key) => {
-    if (key.ctrl && input === 'c' || input.toLowerCase() === 'q') process.exit(0);
+    if ((key.ctrl && input === 'c') || input.toLowerCase() === 'q') process.exit(0);
     if (input === '1') setScreen('overview');
     if (input === '2') setScreen('tasks');
     if (input === '3') setScreen('sensors');

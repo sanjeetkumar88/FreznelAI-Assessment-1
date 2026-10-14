@@ -4,7 +4,9 @@ import { getAuth } from 'firebase-admin/auth';
 import { env } from './env.js';
 
 const hasCredentials = Boolean(
-  env.FIREBASE_PROJECT_ID && env.FIREBASE_CLIENT_EMAIL && env.FIREBASE_PRIVATE_KEY,
+  env.FIREBASE_PROJECT_ID &&
+    env.FIREBASE_CLIENT_EMAIL &&
+    env.FIREBASE_PRIVATE_KEY?.includes('BEGIN PRIVATE KEY'),
 );
 
 export const firebaseAuth = hasCredentials
